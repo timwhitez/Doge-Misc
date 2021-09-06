@@ -37,3 +37,11 @@ OLEAUT32.dll.ord_8
 KERNEL32.dll.MultiByteToWideChar
 GDI32.dll.SetPixelFormat
 OPENGL32.dll.wglCreateContext
+CreateFileA
+CreateFileW
+CloseHandle
+WriteFile
+ReadFile
+LoadLibraryA
+GetProcAddress
+MessageBoxA
