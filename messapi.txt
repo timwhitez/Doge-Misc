@@ -45,3 +45,4 @@ ReadFile
 LoadLibraryA
 GetProcAddress
 MessageBoxA
+SearchMemory
