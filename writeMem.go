@@ -31,6 +31,12 @@ func memcpy(base uintptr, buf []byte) {
 	}
 }
 
+func memcpy(src, dst, size uintptr) {
+	for i := uintptr(0); i < size; i++ {
+		*(*uint8)(unsafe.Pointer(dst + i)) = *(*uint8)(unsafe.Pointer(src + i))
+	}
+}
+
 func Memset(ptr uintptr, c byte, n uintptr){
 	var i uintptr
 	for i = 0;i<n;i++{
