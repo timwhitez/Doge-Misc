@@ -1,0 +1,13 @@
+EnumTimeFormatsA
+EnumWindows
+EnumDesktopWindows
+EnumDateFormatsA
+EnumChildWindows
+EnumThreadWindows
+EnumSystemLocales
+EnumSystemGeoID
+EnumSystemLanguageGroupsA
+EnumUILanguagesA
+EnumSystemCodePagesA
+EnumDesktopsW
+EnumSystemCodePagesW
