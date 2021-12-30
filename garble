@@ -1,0 +1,3 @@
+.\garble.exe -literals -seed=random -tiny build -tags=project -trimpath -ldflags "-w -s"
+
+
